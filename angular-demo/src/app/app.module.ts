@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { GreetingListComponent } from './greeting-list/greeting-list.component';
 import { AddGreetingComponent } from './greeting-list/add-greeting/add-greeting.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AddGreetingComponent } from './greeting-list/add-greeting/add-greeting.
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

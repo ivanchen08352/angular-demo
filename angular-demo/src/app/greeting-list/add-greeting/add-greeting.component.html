@@ -1,18 +1,21 @@
-<div class="">
+<div class="container">
   <div class="row mb-10">
     <div class="col col-md- d-flex justify-content-center align-items-center">
-      <label>Greeting</label>
+      <label>Greeting({{greetingList.length}})</label>
     </div>
     <div class="col col-md-8 d-flex align-items-center">
       <input
         type="text"
-        value="Hi"
         class="form-control"
+        [(ngModel)]="greeting"
+        (change)="addGreeting()"
       />
     </div>
     <div class="col col-md-2 d-flex align-items-center">
       <button
         class="btn btn-primary"
+        [disabled]="!greeting"
+        (click)="addGreeting()"
       >
         Add
       </button>

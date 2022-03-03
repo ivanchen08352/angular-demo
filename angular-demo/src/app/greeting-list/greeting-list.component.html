@@ -1,1 +1,16 @@
-<app-add-greeting></app-add-greeting>
+<div class="container">
+  <app-add-greeting
+    *ngIf="list.length < 10;else hideAddGreeting"
+    [greetingList]="list"
+    (receiveGreeting)="receiveGreeting($event)">
+  </app-add-greeting>
+  <ng-template #hideAddGreeting>
+    <p>Max number!</p>
+  </ng-template>
+  <ul class="list-container">
+    <li *ngFor="let item of list;let i = index">
+      {{i+1}}-{{item.greeting}}
+    </li>
+  </ul>
+</div>
+
