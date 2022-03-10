@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Greeting {
-  greeting: string;
-}
+import { Greeting } from '../interface';
+import { GreetingService } from '../greeting.service';
 
 @Component({
   selector: 'app-greeting-list',
@@ -12,19 +11,18 @@ interface Greeting {
 export class GreetingListComponent implements OnInit {
   list: Greeting[]
 
-  constructor() { }
+  constructor(
+    private greetingService: GreetingService
+  ) { }
 
   ngOnInit(): void {
-    this.list = [
-      { greeting: 'Hi' },
-      { greeting: 'Welcome' }
-    ]
+    this.list = this.greetingService.list;
+    console.log(this.greetingService.list);
   }
 
   receiveGreeting(greeting: string) {
-    this.list.push({
-      greeting
-    })
+    this.greetingService.add(greeting);
+    this.list = this.greetingService.list;
   }
 
 }
